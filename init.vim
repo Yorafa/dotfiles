@@ -5,6 +5,7 @@
 :set shiftwidth=4
 :set smarttab
 :set softtabstop=4
+:set mouse =
 
 call plug#begin()
 
@@ -19,8 +20,6 @@ Plug 'https://github.com/tpope/vim-surround' " fast to edit tag
 Plug 'https://github.com/ap/vim-css-color'
 
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-
-Plug 'ryanoasis/vim-devicons' " icons collection
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " auto completion
 
@@ -38,11 +37,21 @@ call plug#end()
 nnoremap <C-n>	:NERDTree<CR>
 nmap <F8>	:TagbarToggle<CR>
 map <C-h> <Home>
-imap <C-h> <Home>
 vmap <C-h> <Home>
 map <C-l> <End>
-imap <C-h> <Home>
-vmap <C-h> <Home>
+vmap <C-l> <End>
+
+" Fast Move
+imap <C-l> <right>
+imap <C-h> <left>
+imap <C-j> <down>
+imap <C-k> <up>
+
+" Page Move
+map pd <PageDown>
+vmap pd <PageDown>
+map pu <PageUp>
+vmap pu <PageUp>
 
 " theme
 :colorscheme hybrid
@@ -57,10 +66,6 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-
-lua << EOF
-require("nvim-autopairs").setup {}
-EOF
 
 " Compile and Run from extend.vim by amix/vimrc
 
@@ -92,4 +97,8 @@ func! CompileRun()
 		exec "!time octave %"
 	endif
 endfunc
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
 
