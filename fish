@@ -1,0 +1,1 @@
+/home/yorafa/.config/fish
