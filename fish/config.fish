@@ -4,7 +4,6 @@ end
 
 # Personal Alias
 alias clangd='clangd-14'
-alias vi='NVIM_APPNAME=craftzdog/dotfiles-public/.config/nvim nvim'
 
 # Default  Editor
 set -gx EDITOR nvim
