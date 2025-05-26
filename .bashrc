@@ -124,7 +124,7 @@ export PATH=/usr/local/cuda-12.4/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # Add zoxide
-export PATH=/home/yorafa/.local/bin${PATH:+:${PATH}}
+export PATH=$HOME/.local/bin${PATH:+:${PATH}}
 
 # Personal Alias
 alias clangd='clangd-14'
