@@ -119,16 +119,34 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
+# Add Cuda
 export PATH=/usr/local/cuda-12.4/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Add zoxide
+export PATH=/home/yorafa/.local/bin${PATH:+:${PATH}}
 
 # Personal Alias
 alias clangd='clangd-14'
 alias vi='nvim'
+alias vim='nvim'
 
-#initialize Z (https://github.com/rupa/z)
-. ~/z.sh
+# initialize fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
+
+# initialize starship
+eval "$(starship init bash)"
+
+# initialize Cargo and Rust
+export CARGO_HOME="$HOME/.cargo"
+export RUSTUP_HOME="$HOME/.rustup"
+export PATH="$CARGO_HOME/bin:$PATH"
+. "$HOME/.cargo/env"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# initialize zoxide
+eval "$(zoxide init bash)"
