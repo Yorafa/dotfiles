@@ -151,11 +151,6 @@ return {
 	},
 
 	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		enabled = false,
-	},
-
-	{
 		"folke/snacks.nvim",
 		opts = {
 			dashboard = {

@@ -1,26 +1,6 @@
-# Yorafa Ubuntu Config
+# Yorafa Ubuntu Bash Config
 
-## fzf
-
-use `C-t` after binary exectuable to fast select file
-
-use `A-c` to fast cd
-
-use `fzf` to fast locate target file
-
-install by
-
-```bash
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-```
-
-update by
-
-```bash
-cd ~/.fzf
-git fetch && git pull && ./install
-```
+Add `~/.local/bin/` to your path first
 
 ## Z
 
@@ -30,11 +10,23 @@ Use [zoxide](https://github.com/ajeetdsouza/zoxide) to fast jump to your most re
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 ```
 
-## bashrc
+And setup by adding this to the end of config `~/.bashrc`
 
-Some commands might raise error since uninstall, follow install steps below
+```bash
+eval "$(zoxide init bash)"
+```
 
-### powerline status
+## bash line editor (ble.sh)
+
+[ble.sh](https://github.com/akinomyoga/ble.sh) is an editor that supports syntax highlighting, enhanced completion. install by
+
+```bash
+git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+echo 'source -- ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+```
+
+## powerline status
 
 [starship](https://starship.rs/) which is a cross-shell prompt,
 
@@ -43,7 +35,7 @@ curl -sS https://starship.rs/install.sh | sh
 cp ./starship.toml ~/.config/starship.toml
 ```
 
-### Node Version Manage
+## Node Version Manage
 
 install [NVM](https://github.com/nvm-sh/nvm) by
 
@@ -58,23 +50,9 @@ cd ~/.nvm
 git fetch  && git pull
 ```
 
-### SDKMAN
-
-install [SDEKMAN!](https://sdkman.io/) to manage multiple different versions of SDKs (mainly JAVA related) by
-
-```bash
-curl -s "https://get.sdkman.io" | bash
-```
-
-update it by
-
-```bash
-sdk selfupdate force
-```
-
 ## Neovim
 
-Use [LazyVim](https://www.lazyvim.org/) with [craftzdog's Config](https://github.com/craftzdog/dotfiles-public)
+Use [LazyVim](https://www.lazyvim.org/)
 
 Install neovim by
 
@@ -88,9 +66,25 @@ copy the `nvim` folder into `~/.config/nvim`
 
 Use to install plugin, configuration files under `~/.local/share/nvim/lazy/LazyVim/`. All other plugins are also under this directory.
 
+Some extra needs to be installed:
+- [ripgrep](https://github.com/BurntSushi/ripgrep#installation): use for recursively searching the cwd
+
 ## tmux
 
-Change default prefix from `C-b` to `C-d`, use prefix and then `?` to look the help manual
+Install:
+
+```bash
+sudo apt install tmux
+```
+
+### tpm
+
+Tmux Plugin Manager, install by
+
+```bash
+git clone --depth 1 https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+```
+
 
 ## UV
 
@@ -98,4 +92,12 @@ All in one python managerment. Include but not only manager different version of
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+## LazyGit
+
+Use go to install lazygit.
+
+```bash
+go install github.com/jesseduffield/lazygit@latest
 ```

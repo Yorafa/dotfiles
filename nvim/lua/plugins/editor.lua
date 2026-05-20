@@ -1,6 +1,5 @@
 return {
 	{
-		enabled = false,
 		"folke/flash.nvim",
 		---@type Flash.Config
 		opts = {
@@ -14,7 +13,7 @@ return {
 	},
 
 	{
-		"echasnovski/mini.hipatterns",
+		"nvim-mini/mini.hipatterns",
 		event = "BufReadPre",
 		opts = {
 			highlighters = {
@@ -149,7 +148,7 @@ return {
 					})
 				end,
 				desc = "Open File Browser with the path of the current buffer",
-			},
+      },
 		},
 		config = function(_, opts)
 			local telescope = require("telescope")
