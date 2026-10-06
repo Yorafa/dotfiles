@@ -10,6 +10,9 @@ return {
 	{
 		"folke/snacks.nvim",
 		opts = {
+			scroll = {
+				enabled = false, -- 禁用滑动动画
+			},
 			dashboard = {
 				preset = {
 					header = [[

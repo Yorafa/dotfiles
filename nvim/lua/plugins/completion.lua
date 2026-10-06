@@ -3,10 +3,10 @@ return {
 		"saghen/blink.cmp",
 		opts = {
 			keymap = {
-				preset = "default",
-				["<CR>"] = { "fallback" },
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
+				preset = "super-tab",
+				-- 恢复上下原生功能，使用cn, cp 进行选择
+				["<Up>"] = { "fallback" },
+				["<Down>"] = { "fallback" },
 			},
 		},
 	},
