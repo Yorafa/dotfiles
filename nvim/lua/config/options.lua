@@ -5,6 +5,9 @@ vim.opt.fileencoding = "utf-8"
 -- UI Display
 vim.opt.title = true
 
+-- OSC52
+vim.opt.clipboard = "unnamedplus"
+
 -- Indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
